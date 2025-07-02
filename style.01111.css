@@ -27,12 +27,23 @@ body {
      justify-content: flex-start;
      order: -1;
    }
- 
+}
+
+@media (min-width: 992px) {
   #section-top-bar .top-bar__info {
     order: 1;
     justify-content: flex-end;
   }
 }
+
+
+
+
+
+
+
+
+
 
 /* // page title style */
 @media (min-width: 992px) {
