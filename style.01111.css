@@ -1,15 +1,34 @@
+// flash before load my css fix - JS inject this into DOM
 body {
  visibility: visible !important;
 }
 
+// fix header bottom line
 #main {
   margin-top: -1px;
 }
-
 #section-header .header__content {
   border-bottom: none;
 }
 
+/* main menu mode:
+  - desktop: hide main menu, move top bar menu
+  - mobile: show main menu, hide top bar menu
+*/
+@media (min-width: 992px) {
+  .top-bar__menu {
+    font-size: 16px;
+    transform: translate(-65px, 51px);
+     justify-content: flex-start;
+  }
+  .top-bar__info,  {
+    order: 1;
+    justify-content: flex-end;
+  }
+
+}
+
+// page title style
 @media (min-width: 992px) {
   #section-title .title__heading {
     font-size: 40px;
