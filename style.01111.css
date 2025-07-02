@@ -23,7 +23,7 @@ body {
 */
 @media (min-width: 992px) {
 
-  .top-bar__info {
+  #section-top-bar .top-bar__info {
     order: 1;
     justify-content: flex-end;
   }
