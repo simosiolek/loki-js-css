@@ -28,7 +28,7 @@ body {
     order: -1;
   }
  
-  . top-bar__info {
+  .top-bar__info {
     order: 1;
     justify-content: flex-end;
   }
