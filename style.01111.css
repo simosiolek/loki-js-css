@@ -1,0 +1,31 @@
+
+#main {
+  margin-top: -1px;
+}
+
+#section-header .header__content {
+  border-bottom: none;
+}
+
+@media (min-width: 992px) {
+  #section-title .title__heading {
+    font-size: 40px;
+    color: red;
+}
+      
+#section-title .title__content {
+  text-align: left;
+  }
+}
+
+  
+/* data picker position */
+@media (min-width: 992px) {
+  #section-header .header__date-picker-wrapper {
+    height: 20px;
+    min-width: 100%;
+    background: red;
+    transform: translateY(250px);
+  }
+}
+
