@@ -22,7 +22,12 @@ body {
   - mobile: show main menu, hide top bar menu
 */
 @media (min-width: 992px) {
-
+   #section-top-bar .top-bar__menu {
+     font-size: 16px;
+     justify-content: flex-start;
+     order: -1;
+   }
+ 
   #section-top-bar .top-bar__info {
     order: 1;
     justify-content: flex-end;
