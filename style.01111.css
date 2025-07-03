@@ -1,1 +1,405 @@
 
+// // get latest cart when change
+// let latestCartData = null;
+// const originalSetCartData = window.Booqable.setCartData;
+
+// window.Booqable.setCartData = function (data) {
+//   latestCartData = data;
+//   console.log('🔥 cartData intercepted:', data);
+//   return originalSetCartData.call(this, data);
+// };
+
+
+
+// // inject HTML function on re-renders
+// if (window.location.pathname.startsWith('/products/')) {
+  
+//   // 1. Czekaj aż div.xxx pojawi się w DOM
+//   const observer = new MutationObserver(() => {
+//     const container = document.querySelector('.product-main__info')
+  
+//     if (container) {
+//       observer.disconnect(); // zatrzymaj obserwację
+  
+//       // 2. Wstrzyknij HTML SNIPPET
+//       container.insertAdjacentHTML('beforeend', `
+//       <p>aaa</p>
+//       <div class="booqable-product" data-id="mikrodepozyt_kosi-s-01-d"></div>
+//       <div class="booqable-product" data-id="ubezpieczenie_kosi-s-01-u"></div>
+//       `);
+  
+//       // 3. (opcjonalnie) ręczna inicjalizacja, gdy Booqable gotowy
+//       const waitForBooqable = setInterval(() => {
+//         if (window.Booqable && typeof window.Booqable.init === 'function') {
+//           clearInterval(waitForBooqable);
+//           window.Booqable.init(); // 🔁 trigger DOM scanning
+//         }
+//       }, 100);
+//     }
+//   });
+  
+//   observer.observe(document.body, { childList: true, subtree: true });
+// }
+
+
+// inject new csss
+fetch('https://raw.githubusercontent.com/simosiolek/loki-js-css/main/style.01111.css')
+  .then(res => res.text())
+  .then(css => {
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  });
+
+// window.Booqable.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(window.Booqable);
+
+
+
+//   const waitForElement = (selector, callback) => {
+//   // const observer = new MutationObserver(() => {
+//     const el = document.querySelector(selector);
+//     // if (el) {
+//       // observer.disconnect();
+//       callback(el);
+//     // }
+//   // });
+
+//   // observer.observe(document.body, {
+//   //   childList: true,
+//   //   subtree: true
+//   // });
+// };
+
+  // waitForElement('.product-main__info', (el) => {
+  //   el.insertAdjacentHTML('beforeend', `
+  //   <div class="booqable-product" data-id="mikrodepozyt_kosi-s-01-d"></div>
+  //   <div class="booqable-product" data-id="ubezpieczenie_kosi-s-01-u"></div>
+  //   `);
+  // });
+  
+const style = document.createElement('style');
+
+  style.textContent += `
+
+
+
+/* 
+  when position sticky use 46px 
+  to fix padding in hero in mobile  
+*/
+
+
+ #section-text:first-child {
+  position: fixed;
+}
+
+@media (width < 576px) {
+  .header--sticky ~ #main {
+     padding-top: calc(var(--header-height) + 46px - 2px);
+  }
+  
+    #section-text:first-child {
+      height: 46px;
+      margin-top: -44px;
+
+    }
+}
+
+
+  
+  
+ 
+
+#section-text:first-child {
+  z-index: 1001;
+}
+
+#section-text:first-child .text__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: inherit;
+  padding: 8px 0;
+}
+
+#section-text:first-child .text__title a {
+  margin-left: 12px;
+  color: var(--background-accent);
+}
+
+
+
+
+
+@media (width >= 576px) {
+
+  #section-text:first-child .text__wrapper,
+  #section-text:first-child .text__container container {
+    height: 0;
+  }
+
+
+  #section-text:first-child .text__wrapper {
+    background: transparent;
+  }
+  
+  #section-text:first-child .text__title {
+    max-width: 170px;
+    background:red;
+    margin-top: -52px;
+    margin-right: 40px;
+    margin-left: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* top bar */
+/*
+#section-top-bar .top-bar__container {
+  grid-template-rows: 1fr 0 1fr;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+  // #section-top-bar .top-bar__container  {
+  //   grid-template-columns: 1fr 80% 1fr;
+  //   font-size: 16px;
+  // }
+
+
+
+#section-top-bar .top-bar__menu {
+  order: -1;
+}
+  */
+  
+  
+  
+/* 
+  phone  
+
+#section-header .header__inner {
+
+}
+
+#section-top-bar .top-bar__info {
+
+  order: 1;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+*/
+
+/*
+// #section-top-bar .top-bar__info {
+// display: block;
+// white-space: nowrap;
+//   
+//   transform: translate(-48px, 52px);
+//   color: white;
+//   
+//   justify-content: flex-end;
+// }
+
+
+#section-top-bar .top-bar__info .fa-phone {
+  color: #fff;
+}
+
+#section-top-bar .top-bar__info a {
+  color: var(--background-accent);
+} 
+*/
+
+/* main menu 
+section-header header__nav-list {
+  margin-left: 16px
+}
+*/ 
+
+  `;
+
+
+ 
+  
+  
+  
+  
+  
+// style.textContent += `
+
+//   .booqable-product-inner > span > div {
+//     padding: 0 !important;
+//     height: 0;
+//   }
+//   .booqable-product-inner .bq-status, 
+//   .booqable-product-inner .bq-status {
+//     display: none;
+//   }
+// `;
+
+
+style.type = 'text/css';
+document.head.appendChild(style);
+
+
+
+
+
+
+const fixStyles = document.createElement('style');
+
+fixStyles.type = 'text/css';
+fixStyles.textContent += `
+  /* 
+    fix flash before load my css 
+    website builder slide title has css hiiding body
+    
+    [!] keep at the end of css and load as last
+  */
+  body.loaded {
+   visibility: visible !important;
+   opacity: 1 !important;
+  }
+`;
+
+document.body.appendChild(fixStyles);
+
+
+
+
+
+
+
+
+// 
+
+
+
+// Booqable.init();
+
+
+
+// (function () {
+  
+//   let cartData = Booqable.cartData;
+  
+//   // --- 1. Detect route changes ---
+//   const pushState = history.pushState;
+//   const replaceState = history.replaceState;
+
+//   function onRouteChange() {
+//     console.log('[SPA] Route changed to:', location.pathname);
+//     console.log('-------------:', cartData);
+//   }
+
+//   history.pushState = function () {
+//     pushState.apply(this, arguments);
+//     onRouteChange();
+//   };
+
+//   history.replaceState = function () {
+//     replaceState.apply(this, arguments);
+//     onRouteChange();
+//   };
+
+//   window.addEventListener('popstate', onRouteChange);
+
+//   // --- 2. Detect DOM changes (e.g., re-renders) ---
+//   const observer = new MutationObserver((mutationsList) => {
+//     for (const mutation of mutationsList) {
+//       console.log('[SPA] DOM mutation:', mutation);
+//       console.log('-------------:', cartData);
+//     }
+//   });
+
+//   observer.observe(document.body, {
+//     childList: true,
+//     subtree: true,
+//     attributes: true,
+//     characterData: true,
+//   });
+
+//   // --- 3. Detect user interactions ---
+//   document.addEventListener('click', (e) => {
+//     console.log('[SPA] Click:', e.target);
+//     console.log('-------------:', cartData);
+//   });
+
+//   document.addEventListener('input', (e) => {
+//     console.log('[SPA] Input:', e.target, 'Value:', e.target.value);
+//     console.log('-------------:', cartData);
+//   });
+
+//   // Optional: log initial load
+//   console.log('[SPA] Script injected. Current route:', location.pathname);
+//   console.log('-------------:', cartData);
+// })();
+
+// const www = window.Booqable;
+// console.log('www', www.toLocaleString(), window.Booqable.cartData);
+
+
+
+
+// Booqable.on('page-change', function () {
+//       // your code here
+//       console.log('xxxx:', cartData);
+//     });
+
